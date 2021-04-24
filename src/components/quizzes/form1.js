@@ -14,29 +14,36 @@ const Form1 = ({ setData, point }) => {
   }
 
   const error = Object.entries(errors)[0]
-  console.log(error)
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className='font-open-sans font-light'>
-      <div className='flex justify-between mb-11'>
-        <div className='w-5/12 flex justify-between'>
-          <span>
+      <div className='flex lg:flex-row flex-col justify-between mb-11'>
+        <div className='xl:w-5/12 lg:w-1/2 w-full flex sm:flex-row flex-col justify-between lg:mb-0 mb-11'>
+          <span className='sm:mb-0 mb-4 inline-block'>
             <span className='text-green font-bold'>1. </span>
             Ваш пол
           </span>
 
           <div className='flex'>
-            <Radio id='radio1' label='М' value='male' {...register('sex', { required: true })} />
-            <Radio id='radio2' label='Ж' value='female' {...register('sex',{ required: true })} />
+            <Radio id='radio1'
+                   label='М'
+                   value='male'
+                   error={errors.sex}
+                   {...register('sex', { required: 'Укажите ваш пол' })} />
+            <Radio id='radio2'
+                   label='Ж'
+                   value='female'
+                   error={errors.sex}
+                   {...register('sex',{ required: 'Укажите ваш пол' })} />
           </div>
         </div>
-        <div className='w-5/12 flex justify-between items-center'>
-          <span>
+        <div className='xl:w-5/12 lg:w-1/2 w-full lg:pl-4 flex sm:flex-row flex-col justify-between sm:items-center items-start'>
+          <span className='sm:mb-0 mb-4 inline-block'>
             <span className='text-green font-bold'>4. </span>
             Наименование вашей компании
           </span>
 
-          <Select {...register('company', { required: true })}>
+          <Select error={errors.company} {...register('company', { required: 'Укажите наименование вашей компании' })}>
             <option>Option 1</option>
             <option>Option 2</option>
             <option>Option 3</option>
@@ -44,22 +51,22 @@ const Form1 = ({ setData, point }) => {
         </div>
       </div>
 
-      <div className='flex justify-between mb-11'>
-        <div className='w-5/12 flex justify-between items-center'>
-          <span>
+      <div className='flex lg:flex-row flex-col justify-between mb-11'>
+        <div className='xl:w-5/12 lg:w-1/2 w-full flex sm:flex-row flex-col justify-between sm:items-center items-start lg:mb-0 mb-11'>
+          <span className='sm:mb-0 mb-4 inline-block'>
             <span className='text-green font-bold'>2. </span>
             Ваш возраст
           </span>
 
-          <Input type='number' {...register('age', { required: true, max: '100' })} />
+          <Input error={errors.age} type='number' {...register('age', { required: 'Укажите ваш возраст', max: '100' })} />
         </div>
-        <div className='w-5/12 flex justify-between items-center'>
-          <span>
+        <div className='xl:w-5/12 lg:w-1/2 w-full lg:pl-4 flex sm:flex-row flex-col justify-between sm:items-center items-start'>
+          <span className='sm:mb-0 mb-4 inline-block'>
             <span className='text-green font-bold'>5. </span>
             Вид деятельности вашего предприятия
           </span>
 
-          <Select {...register('activity', { required: true })}>
+          <Select error={errors.activity} {...register('activity', { required: 'Укажите вид деятельности вашего предприятия' })}>
             <option>Option 1</option>
             <option>Option 2</option>
             <option>Option 3</option>
@@ -68,13 +75,13 @@ const Form1 = ({ setData, point }) => {
       </div>
 
       <div className='flex justify-between mb-28'>
-        <div className='w-5/12 flex justify-between items-center'>
-          <span>
+        <div className='xl:w-5/12 lg:w-1/2 w-full flex sm:flex-row flex-col justify-between sm:items-center items-start'>
+          <span className='sm:mb-0 mb-4 inline-block'>
             <span className='text-green font-bold'>3. </span>
            Регион проживания
           </span>
 
-          <Select {...register('region', { required: true })}>
+          <Select error={errors.region} {...register('region', { required: 'Укажите регион проживания' })}>
             <option value='option1'>Option 1</option>
             <option value='option2'>Option 2</option>
             <option value='option3'>Option 3</option>
@@ -82,15 +89,15 @@ const Form1 = ({ setData, point }) => {
         </div>
       </div>
 
-      <div className='flex justify-between items-center'>
-        <div>
+      <div className='flex sm:flex-row flex-col justify-between items-center'>
+        <div className='sm:mb-0 mb-6'>
           <Button variant='primary' type='submit' className='mr-9'>
             дальше
           </Button>
-          <span className='text-red font-open-sans font-medium'>Ошибка: </span>
+          {error && <span className='text-red font-open-sans font-medium'>Ошибка: {error[1].message}</span>}
         </div>
 
-        <div className='flex items-center'>
+        <div className='flex items-center justify-center bg-gradient-to-b from-white to-gray py-4 w-full rounded-2xl border border-gray sm:border-none sm:bg-none sm:justify-end'>
           <span className='mr-4 font-open-sans font-bold'>Ваши баллы</span>
           <Score point={point} />
           <span className='text-gray-600 font-bold font-open-sans ml-3'>+5</span>

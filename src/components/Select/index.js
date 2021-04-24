@@ -1,9 +1,14 @@
 import React from 'react';
+import clsx from "clsx";
 
-const Select = React.forwardRef(({ children, ...props }, ref) => {
+const Select = React.forwardRef(({ children, error, ...props }, ref) => {
+  let cls = 'appearance-none w-48 rounded-full border border-gray-500 shadow-inner px-4 font-open-sans font-light'
+  if (error) {
+    cls = clsx(cls, 'bg-red-100 border-red')
+  }
   return (
     <div className='relative inline-block'>
-      <select {...props} ref={ref} className='appearance-none w-48 rounded-full border border-gray-500 shadow-inner px-4 font-open-sans font-light'>
+      <select {...props} ref={ref} className={cls}>
         <option/>
         {children}
       </select>

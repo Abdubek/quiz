@@ -14,7 +14,8 @@ module.exports = {
       gray: '#F2F2F2',
       'gray-500': '#cccccc',
       'gray-600': '#B8B8B8',
-      'red': '#FF0000'
+      'red': '#FF0000',
+      'red-100': '#ff00001A'
     },
     fontSize: {
       'xs': ['0.625rem', '0.875rem'],
