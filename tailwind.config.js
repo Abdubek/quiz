@@ -5,10 +5,16 @@ module.exports = {
     colors: {
       white: '#FFFFFF',
       green: '#6FC05A',
+      'green-100': '#D0FF6B',
       black: '#252525',
       blue: '#396BF1',
       'blue-100': '#6B7BCF',
-      gray: '#F2F2F2'
+      'blue-200': '#5496F5',
+      'purple': '#A448ED',
+      gray: '#F2F2F2',
+      'gray-500': '#cccccc',
+      'gray-600': '#B8B8B8',
+      'red': '#FF0000'
     },
     fontSize: {
       'xs': ['0.625rem', '0.875rem'],
@@ -26,12 +32,11 @@ module.exports = {
       'arial': 'Arial',
       'arial-black': ['Arial Black', 'sans-serif']
     },
-    borderRadius: {
-      lg: '1.25rem'
-    },
     boxShadow: {
+      xs: '0px 2px 4px rgba(0, 0, 0, 0.25)',
+      sm: '0 2px 8px rgba(0, 0, 0, 0.3)',
       md: '0 2px 10px rgba(0, 0, 0, 0.4)',
-      sm: '0 2px 8px rgba(0, 0, 0, 0.3)'
+      lg: '0px 4px 30px rgba(0, 0, 0, 0.2)'
     }
   },
   variants: {

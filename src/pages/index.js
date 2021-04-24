@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import MainSection from "../section/main";
 import DescriptionSection from "../section/description";
+import QuizSection from "../section/quiz";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
 
       <MainSection />
       <DescriptionSection />
+      <QuizSection />
     </div>
   )
 }

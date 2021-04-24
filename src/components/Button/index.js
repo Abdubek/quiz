@@ -1,12 +1,12 @@
 import React from 'react';
 import clsx from "clsx";
 
-const Button = ({ variant = 'default', className, children }) => {
+const Button = ({ variant = 'default', className, children, ...props }) => {
 
-  const cls = 'border-blue w-48 h-10 text-md rounded-lg shadow-md focus:outline-none hover:shadow-sm font-arial uppercase'
+  const cls = 'border-blue w-48 h-10 text-md rounded-full shadow-md focus:outline-none hover:shadow-sm font-arial uppercase'
 
   return (
-    <button className={clsx(
+    <button {...props} className={clsx(
       cls,
       className,
       {'border-blue border-opacity-100 border': variant === 'default'},
