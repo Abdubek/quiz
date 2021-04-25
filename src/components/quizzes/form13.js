@@ -36,7 +36,7 @@ const Form13 = ({ setData, point, back, data, step }) => {
           <Radio id='crm1'
                  label='Программа для учета клиентов/ посетителей/ продаж'
                  value='Программа для учета клиентов/ посетителей/ продаж'
-                 className='md:w-1/3 w-full mb-5'
+                 className='lg:w-1/3 w-full mb-5'
                  labelClassName='justify-between flex-1 sm:pr-10'
                  error={errors.crm}
                  {...register('crm', { required: { value: !otherCrm, message: 'Выберите CRM систему' }})}
@@ -44,7 +44,7 @@ const Form13 = ({ setData, point, back, data, step }) => {
           <Radio id='crm2'
                  label='Программа для складского учета'
                  value='Программа для складского учета'
-                 className='md:w-1/3 w-full mb-5'
+                 className='lg:w-1/3 w-full mb-5'
                  labelClassName='justify-between flex-1 sm:pr-10'
                  error={errors.crm}
                  {...register('crm', { required: { value: !otherCrm, message: 'Выберите CRM систему' }})}
@@ -52,16 +52,16 @@ const Form13 = ({ setData, point, back, data, step }) => {
           <Radio id='crm3'
                  label='Программа для оптимизации логистики'
                  value='Программа для оптимизации логистики'
-                 className='md:w-1/3 w-full mb-5'
+                 className='lg:w-1/3 w-full mb-5'
                  labelClassName='justify-between flex-1 sm:pr-10'
                  error={errors.crm}
                  {...register('crm', { required: { value: !otherCrm, message: 'Выберите CRM систему' }})}
           />
 
-          <div className='md:w-1/3 w-full mb-5'>
+          <div className='lg:w-1/3 w-full mb-5'>
             <Input onFocus={() => setValue('crm', null)}
                    placeholder={'Другое (напишите название)'}
-                   style={{ width: 260 }}
+                   style={{ width: 230 }}
                    error={errors.crm}
                    {...register('other_crm')} />
           </div>
@@ -70,7 +70,7 @@ const Form13 = ({ setData, point, back, data, step }) => {
           <Radio id='crm4'
                  label='не используется'
                  value='не используется'
-                 className='md:w-1/3 w-full mb-5'
+                 className='lg:w-1/3 w-full mb-5'
                  labelClassName='justify-between flex-1 sm:pr-10'
                  error={errors.crm}
                  {...register('crm', { required: { value: !otherCrm, message: 'Выберите CRM систему' }})}

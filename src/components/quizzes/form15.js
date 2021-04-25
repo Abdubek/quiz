@@ -5,11 +5,14 @@ import Score from "../Score";
 import {useForm} from "react-hook-form";
 import Input from "../Input";
 import Progress from "../Progress";
+import QuizFooter from "../QuizFooter";
 
 const Form15 = ({ setData, point, back, data, step }) => {
-  const { register, handleSubmit, setValue, formState: { errors } } = useForm({
+  const { register, handleSubmit, setValue, watch, formState: { errors } } = useForm({
     defaultValues: data
   })
+
+  const otherDocument = watch('other_document')
 
   const onSubmit = (data) => {
     setData(data)
@@ -33,64 +36,56 @@ const Form15 = ({ setData, point, back, data, step }) => {
           <Radio id='document1'
                  label='По электронной почте'
                  value='По электронной почте'
-                 className='md:w-1/3 w-full mb-5'
+                 className='lg:w-1/3 w-full mb-5'
                  labelClassName='justify-between flex-1 sm:pr-10'
-                 {...register('document', { required: 'Выберите способ' })}
+                 error={errors.document}
+                 {...register('document', { required: { value: !otherDocument, message: 'Выберите способ' }})}
           />
           <Radio id='document2'
                  label='Через облачные хранилища'
                  value='Через облачные хранилища'
-                 className='md:w-1/3 w-full mb-5'
+                 className='lg:w-1/3 w-full mb-5'
                  labelClassName='justify-between flex-1 sm:pr-10'
-                 {...register('document', { required: 'Выберите способ' })}
+                 error={errors.document}
+                 {...register('document', { required: { value: !otherDocument, message: 'Выберите способ' }})}
           />
 
-          <div className='md:w-1/3 w-full mb-5'>
+          <div className='lg:w-1/3 w-full mb-5'>
             <Input onFocus={() => setValue('document', null)}
                    placeholder={'Другое'}
+                   error={errors.document}
                    {...register('other_document')} />
           </div>
 
           <Radio id='document3'
                  label='Используем мессенджеры, так удобнее (WhatsApp, Telegram и т.д.)'
                  value='Используем мессенджеры, так удобнее (WhatsApp, Telegram и т.д.)'
-                 className='md:w-1/3 w-full mb-5'
+                 className='lg:w-1/3 w-full mb-5'
                  labelClassName='justify-between flex-1 sm:pr-10'
-                 {...register('document', { required: 'Выберите способ' })}
+                 error={errors.document}
+                 {...register('document', { required: { value: !otherDocument, message: 'Выберите способ' }})}
           />
           <Radio id='document4'
                  label='Используем локальный сервер'
                  value='Используем локальный сервер'
-                 className='md:w-1/3 w-full mb-5'
+                 className='lg:w-1/3 w-full mb-5'
                  labelClassName='justify-between flex-1 sm:pr-10'
-                 {...register('document', { required: 'Выберите способ' })}
+                 error={errors.document}
+                 {...register('document', { required: { value: !otherDocument, message: 'Выберите способ' }})}
           />
           <Radio id='document5'
                  label='у нас не бывает файлов'
                  value='у нас не бывает файлов'
-                 className='md:w-1/3 w-full mb-5'
+                 className='lg:w-1/3 w-full mb-5'
                  labelClassName='justify-between flex-1 sm:pr-10'
-                 {...register('document', { required: 'Выберите способ' })}
+                 error={errors.document}
+                 {...register('document', { required: { value: !otherDocument, message: 'Выберите способ' }})}
           />
 
         </div>
       </div>
 
-      <div className='flex sm:flex-row flex-col justify-between items-center'>
-        <div className='sm:mb-0 mb-6 flex items-center sm:flex-row flex-col flex-col-reverse'>
-          <span className='mr-6 font-open-sans font-bold cursor-pointer sm:mt-0 mt-4' onClick={back}>Назад</span>
-          <Button variant='primary' type='submit' className='sm:mr-9'>
-            дальше
-          </Button>
-          {error && <span className='text-red font-open-sans font-medium'>Ошибка: {error[1].message}</span>}
-        </div>
-
-        <div className='flex items-center justify-center bg-gradient-to-b from-white to-gray py-4 sm:w-auto w-full rounded-2xl border border-gray sm:border-none sm:bg-none sm:justify-end'>
-          <span className='mr-4 font-open-sans font-bold'>Ваши баллы</span>
-          <Score point={point} />
-          <span className='text-gray-600 font-bold font-open-sans ml-3'>+5</span>
-        </div>
-      </div>
+      <QuizFooter error={error} point={point} back={back} />
     </form>
   );
 };

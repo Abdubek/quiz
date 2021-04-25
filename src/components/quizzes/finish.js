@@ -1,10 +1,10 @@
 import React from 'react';
 import Button from "../Button";
 
-const FinishQuiz = ({ next }) => {
+const FinishQuiz = ({ submit, next }) => {
   return (
     <div style={{ minHeight: 444 }}>
-      <h2 className='font-arial-black font-black text-xl mb-14 mt-16'>Сегодня вы работаете в офисе, и это прекрасно! </h2>
+      <h2 className='font-arial-black font-black text-xl mb-14 md:mt-16'>Сегодня вы работаете в офисе, и это прекрасно! </h2>
 
       <p className='font-open-sans font-light mb-20'>
         Но, наверняка, ваша компания тоже стала одной из тех, кто пережил карантинные ограничения в режиме удалённой
@@ -12,8 +12,8 @@ const FinishQuiz = ({ next }) => {
         немного и они принесут дополнительные баллы.
       </p>
 
-      <div>
-        <Button className='mr-4 h-16 w-56 px-4'>
+      <div className='flex md:flex-row flex-col items-center'>
+        <Button className='mr-4 h-16 w-56 px-4 md:mb-0 mb-8' onClick={() => submit()}>
           О нет! Я хочу закончить этот тест
         </Button>
         <Button variant='primary' className='h-16 w-56 px-4' onClick={next}>
