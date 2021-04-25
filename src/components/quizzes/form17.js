@@ -6,13 +6,13 @@ import {useForm} from "react-hook-form";
 import Input from "../Input";
 import Progress from "../Progress";
 
-const Form11 = ({ setData, point, back, data, step }) => {
-  const { register, handleSubmit, formState: { errors } } = useForm({
+const Form17 = ({ point, back, data, step, submit }) => {
+  const { register, handleSubmit, setValue, formState: { errors } } = useForm({
     defaultValues: data
   })
 
   const onSubmit = (data) => {
-    setData(data)
+    submit(data)
   }
 
   const error = Object.entries(errors)[0]
@@ -21,21 +21,37 @@ const Form11 = ({ setData, point, back, data, step }) => {
     <form onSubmit={handleSubmit(onSubmit)} className='font-open-sans font-light flex flex-col' style={{ minHeight: 444 }}>
       <Progress className='sm:mb-16 mb-8' percent={Math.min((100 / 16) * step, 100)} />
 
-      <h3 className='text-xl font-arial-black font-black sm:mb-12 mb-6 inline-block'>О качестве интернета в вашем офисе</h3>
+      <h3 className='text-xl font-arial-black font-black sm:mb-12 mb-6 inline-block'>О работе на удаленке</h3>
 
       <div className='flex-1'>
-        <span className='inline-block mb-12 max-w-lg text-gray-700'>
-          <span className='font-bold'>Внимание:</span> <br/>
-          В этом разделе отвечайте, пожалуйста, только про качество интернета именно в офисе
-        </span><br/>
-
         <span className='mb-5 inline-block'>
-          <span className='text-green font-bold'>19. </span>
-          Как вы оцениваете качество интернет-соединения в вашем офисе по шкале от 1 до 5?
+          <span className='text-green font-bold'>12. </span>
+          Требовалась ли вам установка дополнительного программного обеспечения для осуществления своей рабочей деятельности вне офиса?
         </span>
 
-        <div className='flex flex-wrap items-center'>
+        <div className='flex flex-wrap'>
+          <Radio id='document1'
+                 label='Да'
+                 value='Да'
+                 className='md:w-1/3 w-full mb-5'
+                 labelClassName='justify-between flex-1 sm:pr-10'
+                 {...register('remote')}
+          />
+          <Radio id='document1'
+                 label='Нет'
+                 value='Нет'
+                 className='md:w-1/3 w-full mb-5'
+                 labelClassName='justify-between flex-1 sm:pr-10'
+                 {...register('remote')}
+          />
+        </div>
 
+        <div className='md:w-1/3 w-full mb-5'>
+          <Input onFocus={() => setValue('document', null)}
+                 textarea
+                 className='w-56'
+                 placeholder={'Названия или назначение программ'}
+                 {...register('other_document')} />
         </div>
       </div>
 
@@ -58,4 +74,4 @@ const Form11 = ({ setData, point, back, data, step }) => {
   );
 };
 
-export default Form11;
+export default Form17;

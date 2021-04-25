@@ -4,8 +4,9 @@ import Button from "../Button";
 import Score from "../Score";
 import {useForm} from "react-hook-form";
 import Input from "../Input";
+import Progress from "../Progress";
 
-const Form12 = ({ setData, point, back, data }) => {
+const Form12 = ({ setData, point, back, data, step }) => {
   const { register, handleSubmit, setValue, formState: { errors } } = useForm({
     defaultValues: data
   })
@@ -18,6 +19,8 @@ const Form12 = ({ setData, point, back, data }) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className='font-open-sans font-light flex flex-col' style={{ minHeight: 444 }}>
+      <Progress className='sm:mb-16 mb-8' percent={Math.min((100 / 16) * step, 100)} />
+
       <h3 className='text-xl font-arial-black font-black sm:mb-12 mb-6 inline-block'>Об использовании интернет ресурсов в вашем офисе</h3>
 
       <div className='flex-1'>
@@ -54,21 +57,21 @@ const Form12 = ({ setData, point, back, data }) => {
                  labelClassName='justify-between flex-1 sm:pr-10'
                  {...register('program', { required: 'Выберите программу' })}
           />
-          <Radio id='program3'
+          <Radio id='program4'
                  label='Google meet'
                  value='Google meet'
                  className='md:w-1/3 w-full mb-5'
                  labelClassName='justify-between flex-1 sm:pr-10'
                  {...register('program', { required: 'Выберите программу' })}
           />
-          <Radio id='program4'
+          <Radio id='program5'
                  label='не используется'
                  value='не используется'
                  className='md:w-1/3 w-full mb-5'
                  labelClassName='justify-between flex-1 sm:pr-10'
                  {...register('program', { required: 'Выберите программу' })}
           />
-          <Radio id='program5'
+          <Radio id='program6'
                  label='zoom'
                  value='zoom'
                  className='md:w-1/3 w-full mb-5'

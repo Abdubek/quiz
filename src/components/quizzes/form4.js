@@ -3,8 +3,9 @@ import Button from "../Button";
 import Score from "../Score";
 import {useForm} from "react-hook-form";
 import Input from "../Input";
+import Progress from "../Progress";
 
-const Form4 = ({ setData, point, back, data }) => {
+const Form4 = ({ setData, point, back, data, step }) => {
   const { register, handleSubmit, formState: { errors } } = useForm({
     defaultValues: data
   })
@@ -17,6 +18,8 @@ const Form4 = ({ setData, point, back, data }) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className='font-open-sans font-light flex flex-col' style={{ minHeight: 444 }}>
+      <Progress className='sm:mb-16 mb-8' percent={Math.min((100 / 16) * step, 100)} />
+
       <h3 className='text-xl font-arial-black font-black sm:mb-12 mb-6 inline-block'>О вас и вашей компании</h3>
 
       <div className='flex-1'>
