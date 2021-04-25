@@ -5,7 +5,7 @@ import Score from "../Score";
 import {useForm} from "react-hook-form";
 import Input from "../Input";
 
-const Form2 = ({ setData, point, back, data }) => {
+const Form15 = ({ setData, point, back, data }) => {
   const { register, handleSubmit, setValue, formState: { errors } } = useForm({
     defaultValues: data
   })
@@ -18,53 +18,58 @@ const Form2 = ({ setData, point, back, data }) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className='font-open-sans font-light flex flex-col' style={{ minHeight: 444 }}>
-      <h3 className='text-xl font-arial-black font-black sm:mb-12 mb-6 inline-block'>О вас и вашей компании</h3>
+      <h3 className='text-xl font-arial-black font-black sm:mb-12 mb-6 inline-block'>Об использовании интернет ресурсов в вашем офисе</h3>
 
       <div className='flex-1'>
         <span className='mb-5 inline-block'>
-          <span className='text-green font-bold'>6. </span>
-          Где размещается ваша компания?
+          <span className='text-green font-bold'>31. </span>
+          Как ваши сотрудники обмениваются документами и информацией между собой?
         </span>
 
         <div className='flex flex-wrap'>
-          <Radio id='locate1'
-                 label='Бизнес-центр'
-                 value='Бизнес-центр'
+          <Radio id='document1'
+                 label='По электронной почте'
+                 value='По электронной почте'
                  className='md:w-1/3 w-full mb-5'
                  labelClassName='justify-between flex-1 sm:pr-10'
-                 {...register('located', { required: 'Выберите место' })}
+                 {...register('document', { required: 'Выберите способ' })}
           />
-          <Radio id='locate2'
-                 label='Торговый центр'
-                 value='Торговый центр'
+          <Radio id='document2'
+                 label='Через облачные хранилища'
+                 value='Через облачные хранилища'
                  className='md:w-1/3 w-full mb-5'
                  labelClassName='justify-between flex-1 sm:pr-10'
-                 {...register('located', { required: 'Выберите место' })}
+                 {...register('document', { required: 'Выберите способ' })}
           />
-          <Radio id='locate3'
-                 label='Отдельное здание'
-                 value='Отдельное здание'
+
+          <div className='md:w-1/3 w-full mb-5'>
+            <Input onFocus={() => setValue('document', null)}
+                   placeholder={'Другое'}
+                   {...register('other_document')} />
+          </div>
+
+          <Radio id='document3'
+                 label='Используем мессенджеры, так удобнее (WhatsApp, Telegram и т.д.)'
+                 value='Используем мессенджеры, так удобнее (WhatsApp, Telegram и т.д.)'
                  className='md:w-1/3 w-full mb-5'
                  labelClassName='justify-between flex-1 sm:pr-10'
-                 {...register('located', { required: 'Выберите место' })}
+                 {...register('document', { required: 'Выберите способ' })}
           />
-          <Radio id='locate4'
-                 label='Квартира, переоборудованная под офис'
-                 value='Квартира, переоборудованная под офис'
+          <Radio id='document4'
+                 label='Используем локальный сервер'
+                 value='Используем локальный сервер'
                  className='md:w-1/3 w-full mb-5'
                  labelClassName='justify-between flex-1 sm:pr-10'
-                 {...register('located', { required: 'Выберите место' })}
+                 {...register('document', { required: 'Выберите способ' })}
           />
-          <Radio id='locate5'
-                 label='Коворкинг'
-                 value='Коворкинг'
+          <Radio id='document5'
+                 label='у нас не бывает файлов'
+                 value='у нас не бывает файлов'
                  className='md:w-1/3 w-full mb-5'
                  labelClassName='justify-between flex-1 sm:pr-10'
-                 {...register('located', { required: 'Выберите место' })}
+                 {...register('document', { required: 'Выберите способ' })}
           />
-          <Input onFocus={() => setValue('located', null)}
-                 placeholder={'Другое'}
-                 {...register('other_located')} />
+
         </div>
       </div>
 
@@ -87,4 +92,4 @@ const Form2 = ({ setData, point, back, data }) => {
   );
 };
 
-export default Form2;
+export default Form15;

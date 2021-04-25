@@ -5,7 +5,7 @@ import Score from "../Score";
 import {useForm} from "react-hook-form";
 import Input from "../Input";
 
-const Form2 = ({ setData, point, back, data }) => {
+const Form12 = ({ setData, point, back, data }) => {
   const { register, handleSubmit, setValue, formState: { errors } } = useForm({
     defaultValues: data
   })
@@ -18,53 +18,63 @@ const Form2 = ({ setData, point, back, data }) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className='font-open-sans font-light flex flex-col' style={{ minHeight: 444 }}>
-      <h3 className='text-xl font-arial-black font-black sm:mb-12 mb-6 inline-block'>О вас и вашей компании</h3>
+      <h3 className='text-xl font-arial-black font-black sm:mb-12 mb-6 inline-block'>Об использовании интернет ресурсов в вашем офисе</h3>
 
       <div className='flex-1'>
         <span className='mb-5 inline-block'>
-          <span className='text-green font-bold'>6. </span>
-          Где размещается ваша компания?
+          <span className='text-green font-bold'>26. </span>
+          Используются ли в Вашей Компании CRM-системы?
         </span>
 
         <div className='flex flex-wrap'>
-          <Radio id='locate1'
-                 label='Бизнес-центр'
-                 value='Бизнес-центр'
+          <Radio id='program1'
+                 label='WhatsApp'
+                 value='WhatsApp'
                  className='md:w-1/3 w-full mb-5'
                  labelClassName='justify-between flex-1 sm:pr-10'
-                 {...register('located', { required: 'Выберите место' })}
+                 {...register('crm', { required: 'Выберите программу' })}
           />
-          <Radio id='locate2'
-                 label='Торговый центр'
-                 value='Торговый центр'
+          <Radio id='program2'
+                 label='Skype'
+                 value='Skype'
                  className='md:w-1/3 w-full mb-5'
                  labelClassName='justify-between flex-1 sm:pr-10'
-                 {...register('located', { required: 'Выберите место' })}
+                 {...register('program', { required: 'Выберите программу' })}
           />
-          <Radio id='locate3'
-                 label='Отдельное здание'
-                 value='Отдельное здание'
+          <div className='md:w-1/3 w-full mb-5'>
+            <Input onFocus={() => setValue('program', null)}
+                   placeholder={'Другое'}
+                   {...register('other_program')} />
+          </div>
+
+          <Radio id='program3'
+                 label='Telegram'
+                 value='Telegram'
                  className='md:w-1/3 w-full mb-5'
                  labelClassName='justify-between flex-1 sm:pr-10'
-                 {...register('located', { required: 'Выберите место' })}
+                 {...register('program', { required: 'Выберите программу' })}
           />
-          <Radio id='locate4'
-                 label='Квартира, переоборудованная под офис'
-                 value='Квартира, переоборудованная под офис'
+          <Radio id='program3'
+                 label='Google meet'
+                 value='Google meet'
                  className='md:w-1/3 w-full mb-5'
                  labelClassName='justify-between flex-1 sm:pr-10'
-                 {...register('located', { required: 'Выберите место' })}
+                 {...register('program', { required: 'Выберите программу' })}
           />
-          <Radio id='locate5'
-                 label='Коворкинг'
-                 value='Коворкинг'
+          <Radio id='program4'
+                 label='не используется'
+                 value='не используется'
                  className='md:w-1/3 w-full mb-5'
                  labelClassName='justify-between flex-1 sm:pr-10'
-                 {...register('located', { required: 'Выберите место' })}
+                 {...register('program', { required: 'Выберите программу' })}
           />
-          <Input onFocus={() => setValue('located', null)}
-                 placeholder={'Другое'}
-                 {...register('other_located')} />
+          <Radio id='program5'
+                 label='zoom'
+                 value='zoom'
+                 className='md:w-1/3 w-full mb-5'
+                 labelClassName='justify-between flex-1 sm:pr-10'
+                 {...register('program', { required: 'Выберите программу' })}
+          />
         </div>
       </div>
 
@@ -87,4 +97,4 @@ const Form2 = ({ setData, point, back, data }) => {
   );
 };
 
-export default Form2;
+export default Form12;

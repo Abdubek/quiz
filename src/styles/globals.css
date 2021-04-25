@@ -46,6 +46,7 @@ input[type="radio"] + label span {
   transition: background 0.2s, transform 0.2s;
   height: 30px;
   width: 30px;
+  min-width: 30px;
   border: 1px solid #cccccc;
   background-color: white;
 }

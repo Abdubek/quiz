@@ -3,10 +3,9 @@ import Radio from "../Radio";
 import Button from "../Button";
 import Score from "../Score";
 import {useForm} from "react-hook-form";
-import Input from "../Input";
 
-const Form2 = ({ setData, point, back, data }) => {
-  const { register, handleSubmit, setValue, formState: { errors } } = useForm({
+const Form3 = ({ setData, point, back, data }) => {
+  const { register, handleSubmit, formState: { errors } } = useForm({
     defaultValues: data
   })
 
@@ -22,49 +21,54 @@ const Form2 = ({ setData, point, back, data }) => {
 
       <div className='flex-1'>
         <span className='mb-5 inline-block'>
-          <span className='text-green font-bold'>6. </span>
-          Где размещается ваша компания?
+          <span className='text-green font-bold'>7. </span>
+          Сколько людей работает в вашей компании?
         </span>
 
         <div className='flex flex-wrap'>
-          <Radio id='locate1'
-                 label='Бизнес-центр'
-                 value='Бизнес-центр'
+          <Radio id='population1'
+                 label='До 5 человек'
+                 value='До 5 человек'
                  className='md:w-1/3 w-full mb-5'
                  labelClassName='justify-between flex-1 sm:pr-10'
-                 {...register('located', { required: 'Выберите место' })}
+                 {...register('population', { required: 'Выберите количество людей' })}
           />
-          <Radio id='locate2'
-                 label='Торговый центр'
-                 value='Торговый центр'
+          <Radio id='population2'
+                 label='6-15 человек'
+                 value='6-15 человек'
                  className='md:w-1/3 w-full mb-5'
                  labelClassName='justify-between flex-1 sm:pr-10'
-                 {...register('located', { required: 'Выберите место' })}
+                 {...register('population', { required: 'Выберите количество людей' })}
           />
-          <Radio id='locate3'
-                 label='Отдельное здание'
-                 value='Отдельное здание'
+          <Radio id='population3'
+                 label='16-30 человек'
+                 value='16-30 человек'
                  className='md:w-1/3 w-full mb-5'
                  labelClassName='justify-between flex-1 sm:pr-10'
-                 {...register('located', { required: 'Выберите место' })}
+                 {...register('population', { required: 'Выберите количество людей' })}
           />
-          <Radio id='locate4'
-                 label='Квартира, переоборудованная под офис'
-                 value='Квартира, переоборудованная под офис'
+          <Radio id='population4'
+                 label='31-50 человек'
+                 value='31-50 человек'
                  className='md:w-1/3 w-full mb-5'
                  labelClassName='justify-between flex-1 sm:pr-10'
-                 {...register('located', { required: 'Выберите место' })}
+                 {...register('population', { required: 'Выберите количество людей' })}
           />
-          <Radio id='locate5'
-                 label='Коворкинг'
-                 value='Коворкинг'
+          <Radio id='population5'
+                 label='51-100 человек'
+                 value='51-100 человек'
                  className='md:w-1/3 w-full mb-5'
                  labelClassName='justify-between flex-1 sm:pr-10'
-                 {...register('located', { required: 'Выберите место' })}
+                 {...register('population', { required: 'Выберите количество людей' })}
           />
-          <Input onFocus={() => setValue('located', null)}
-                 placeholder={'Другое'}
-                 {...register('other_located')} />
+          <Radio id='population6'
+                 label='100+ человек'
+                 value='100+ человек'
+                 className='md:w-1/3 w-full mb-5'
+                 labelClassName='justify-between flex-1 sm:pr-10'
+                 {...register('population', { required: 'Выберите количество людей' })}
+          />
+
         </div>
       </div>
 
@@ -87,4 +91,4 @@ const Form2 = ({ setData, point, back, data }) => {
   );
 };
 
-export default Form2;
+export default Form3;
