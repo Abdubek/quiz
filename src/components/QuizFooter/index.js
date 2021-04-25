@@ -6,10 +6,11 @@ const QuizFooter = ({ error, point, back }) => {
   return (
     <div className='flex sm:flex-row flex-col justify-between items-center'>
       <div className='sm:mb-0 mb-6 flex md:flex-row flex-col items-center'>
-        {back && <span className='mr-6 font-open-sans font-bold cursor-pointer md:my-0 my-4' onClick={back}>Назад</span>}
+        {back && <span className='mr-6 font-open-sans font-bold cursor-pointer md:inline-block hidden' onClick={back}>Назад</span>}
         <Button variant='primary' type='submit' className='sm:mr-9 md:mb-0 mb-3'>
           дальше
         </Button>
+        {back && <span className='mr-6 font-open-sans font-bold cursor-pointer mt-4 md:hidden inline-block' onClick={back}>Назад</span>}
         {error && <span className='text-red font-open-sans font-medium md:pl-4'>Ошибка: {error[1].message}</span>}
       </div>
 
