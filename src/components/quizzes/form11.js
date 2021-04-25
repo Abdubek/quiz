@@ -5,6 +5,7 @@ import Score from "../Score";
 import {useForm} from "react-hook-form";
 import Input from "../Input";
 import Progress from "../Progress";
+import QuizFooter from "../QuizFooter";
 
 const Form11 = ({ setData, point, back, data, step }) => {
   const { register, handleSubmit, formState: { errors } } = useForm({
@@ -35,25 +36,23 @@ const Form11 = ({ setData, point, back, data, step }) => {
         </span>
 
         <div className='flex flex-wrap items-center'>
-
+          <div className='w-80'>
+            <div className='flex justify-between font-bold px-3'>
+              <span>1</span>
+              <span>2</span>
+              <span>3</span>
+              <span>4</span>
+              <span>5</span>
+            </div>
+            <input type='range'
+                   min={1}
+                   max={5}
+                   {...register('internetQuality')}/>
+          </div>
         </div>
       </div>
 
-      <div className='flex sm:flex-row flex-col justify-between items-center'>
-        <div className='sm:mb-0 mb-6 flex items-center sm:flex-row flex-col flex-col-reverse'>
-          <span className='mr-6 font-open-sans font-bold cursor-pointer sm:mt-0 mt-4' onClick={back}>Назад</span>
-          <Button variant='primary' type='submit' className='sm:mr-9'>
-            дальше
-          </Button>
-          {error && <span className='text-red font-open-sans font-medium'>Ошибка: {error[1].message}</span>}
-        </div>
-
-        <div className='flex items-center justify-center bg-gradient-to-b from-white to-gray py-4 sm:w-auto w-full rounded-2xl border border-gray sm:border-none sm:bg-none sm:justify-end'>
-          <span className='mr-4 font-open-sans font-bold'>Ваши баллы</span>
-          <Score point={point} />
-          <span className='text-gray-600 font-bold font-open-sans ml-3'>+5</span>
-        </div>
-      </div>
+      <QuizFooter error={error} point={point} back={back} />
     </form>
   );
 };

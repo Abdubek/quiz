@@ -5,6 +5,8 @@ import Score from "../Score";
 import {useForm} from "react-hook-form";
 import Input from "../Input";
 import Progress from "../Progress";
+import {copy} from "../../utils";
+import QuizFooter from "../QuizFooter";
 
 const Form10 = ({ setData, point, back, data, step }) => {
   const { register, handleSubmit, formState: { errors } } = useForm({
@@ -34,32 +36,22 @@ const Form10 = ({ setData, point, back, data, step }) => {
           Не могли бы вы поделиться контактами вашего IT-специалиста или<br/> того лица, который отвечает у вас за интернет?
         </span>
 
-        <div className='flex flex-wrap items-center'>
-          <Input placeholder='Мобильный телефон' {...register('phone')}/>
-          <span className='font-bold mx-4'>ИЛИ</span>
-          <Input placeholder='E-mail' {...register('email')}/>
-          <span className='font-bold mx-4'>ИЛИ</span>
-          <Button variant='primary'>
+        <div className='flex flex-wrap lg:flex-row flex-col lg:items-center items-start mb-8'>
+          <Input placeholder='Мобильный телефон'
+                 className='mb-4 lg:w-48 w-full'
+                 {...register('phone')}/>
+          <span className='font-bold mx-4 mb-4'>ИЛИ</span>
+          <Input placeholder='E-mail'
+                 className='mb-4 lg:w-48 w-full'
+                 {...register('email')}/>
+          <span className='font-bold mx-4 mb-4'>ИЛИ</span>
+          <Button variant='primary' className='mb-4 lg:w-48 w-full' onClick={() => copy(window.location.href)}>
             ссылка на этот тест
           </Button>
         </div>
       </div>
 
-      <div className='flex sm:flex-row flex-col justify-between items-center'>
-        <div className='sm:mb-0 mb-6 flex items-center sm:flex-row flex-col flex-col-reverse'>
-          <span className='mr-6 font-open-sans font-bold cursor-pointer sm:mt-0 mt-4' onClick={back}>Назад</span>
-          <Button variant='primary' type='submit' className='sm:mr-9'>
-            дальше
-          </Button>
-          {error && <span className='text-red font-open-sans font-medium'>Ошибка: {error[1].message}</span>}
-        </div>
-
-        <div className='flex items-center justify-center bg-gradient-to-b from-white to-gray py-4 sm:w-auto w-full rounded-2xl border border-gray sm:border-none sm:bg-none sm:justify-end'>
-          <span className='mr-4 font-open-sans font-bold'>Ваши баллы</span>
-          <Score point={point} />
-          <span className='text-gray-600 font-bold font-open-sans ml-3'>+5</span>
-        </div>
-      </div>
+      <QuizFooter error={error} point={point} back={back} />
     </form>
   );
 };
