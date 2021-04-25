@@ -18,7 +18,7 @@ const Form10 = ({ setData, point, back, data, step }) => {
   const error = Object.entries(errors)[0]
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className='font-open-sans font-light flex flex-col' style={{ minHeight: 444 }}>
+    <form onSubmit={handleSubmit(onSubmit)} className='font-open-sans font-light flex flex-col' style={{ minHeight: 500 }}>
       <Progress className='sm:mb-16 mb-8' percent={Math.min((100 / 16) * step, 100)} />
 
       <h3 className='text-xl font-arial-black font-black sm:mb-12 mb-6 inline-block'>Об интернете в вашем офисе</h3>

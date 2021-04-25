@@ -18,7 +18,7 @@ const Form4 = ({ setData, point, back, data, step }) => {
   const error = Object.entries(errors)[0]
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className='font-open-sans font-light flex flex-col' style={{ minHeight: 444 }}>
+    <form onSubmit={handleSubmit(onSubmit)} className='font-open-sans font-light flex flex-col' style={{ minHeight: 500 }}>
       <Progress className='sm:mb-16 mb-8' percent={Math.min((100 / 16) * step, 100)} />
 
       <h3 className='text-xl font-arial-black font-black sm:mb-12 mb-6 inline-block'>О вас и вашей компании</h3>
@@ -31,8 +31,7 @@ const Form4 = ({ setData, point, back, data, step }) => {
         </span>
 
         <div className='flex flex-wrap mb-8'>
-          <Input placeholder='Другое' {...register('website')}
-          />
+          <Input placeholder='Другое' {...register('website')} />
 
         </div>
       </div>

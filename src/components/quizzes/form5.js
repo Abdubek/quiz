@@ -4,6 +4,7 @@ import Score from "../Score";
 import {useForm} from "react-hook-form";
 import Select from "../Select";
 import Progress from "../Progress";
+import QuizFooter from "../QuizFooter";
 
 const Form5 = ({ setData, point, back, data, step }) => {
   const { register, handleSubmit, formState: { errors } } = useForm({
@@ -17,14 +18,14 @@ const Form5 = ({ setData, point, back, data, step }) => {
   const error = Object.entries(errors)[0]
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className='font-open-sans font-light flex flex-col' style={{ minHeight: 444 }}>
+    <form onSubmit={handleSubmit(onSubmit)} className='font-open-sans font-light flex flex-col' style={{ minHeight: 500 }}>
       <Progress className='sm:mb-16 mb-8' percent={Math.min((100 / 16) * step, 100)} />
 
       <h3 className='text-xl font-arial-black font-black sm:mb-12 mb-6 inline-block'>Об интернете в вашем офисе</h3>
 
       <div className='flex-1'>
 
-        <span className='inline-block mb-12 max-w-lg text-gray-700'>
+        <span className='inline-block mb-12 max-w-3xl text-gray-700'>
           <span className='font-bold'>Внимание:</span> <br/>
           Ответы на некоторые вопросы в этом разделе принесут вам больше баллов.
           Если вы не знаете точного ответа, пожалуйста свяжитесь для уточнения с вашим провайдером или IT-специалистом.
@@ -37,7 +38,7 @@ const Form5 = ({ setData, point, back, data, step }) => {
         </span>
 
         <div className='flex flex-wrap'>
-          <Select {...register('internet')}>
+          <Select error={errors.internet} {...register('internet', { required: 'Выберите ваш интернет провайдер' })}>
             <option value='option1'>Option 1</option>
             <option value='option2'>Option 2</option>
           </Select>
@@ -45,21 +46,7 @@ const Form5 = ({ setData, point, back, data, step }) => {
         </div>
       </div>
 
-      <div className='flex sm:flex-row flex-col justify-between items-center'>
-        <div className='sm:mb-0 mb-6 flex items-center sm:flex-row flex-col flex-col-reverse'>
-          <span className='mr-6 font-open-sans font-bold cursor-pointer sm:mt-0 mt-4' onClick={back}>Назад</span>
-          <Button variant='primary' type='submit' className='sm:mr-9'>
-            дальше
-          </Button>
-          {error && <span className='text-red font-open-sans font-medium'>Ошибка: {error[1].message}</span>}
-        </div>
-
-        <div className='flex items-center justify-center bg-gradient-to-b from-white to-gray py-4 sm:w-auto w-full rounded-2xl border border-gray sm:border-none sm:bg-none sm:justify-end'>
-          <span className='mr-4 font-open-sans font-bold'>Ваши баллы</span>
-          <Score point={point} />
-          <span className='text-gray-600 font-bold font-open-sans ml-3'>+5</span>
-        </div>
-      </div>
+      <QuizFooter error={error} point={point} back={back} />
     </form>
   );
 };
