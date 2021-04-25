@@ -9,9 +9,9 @@ const Radio =  React.forwardRef(({ id, label, error, className, labelClassName, 
   }
 
   return (
-    <div className={clsx(className, "flex items-center")}>
+    <div className={clsx(className, "flex items-start")}>
       <input id={id} type="radio" name="radio" className="hidden" {...props} ref={ref}/>
-      <label htmlFor={id} className={clsx(labelClassName, "flex items-center cursor-pointer text-base font-bold uppercase")}>
+      <label htmlFor={id} className={clsx(labelClassName, "flex items-start cursor-pointer text-base font-bold uppercase")}>
         {label}
         <span className={cls} />
       </label>
