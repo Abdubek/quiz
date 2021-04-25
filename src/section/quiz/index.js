@@ -21,7 +21,7 @@ import Form17 from "../../components/quizzes/form17";
 const QuizSection = () => {
   const [data, setData] = useState({})
   const [point, setPoint] = useState(0)
-  const [step, setStep] = useState(3)
+  const [step, setStep] = useState(1)
 
   const nextStep = (stepData) => {
     console.log(stepData)
