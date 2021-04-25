@@ -38,6 +38,7 @@ const Form2 = ({ setData, point, back, data, step }) => {
                  value='Бизнес-центр'
                  className='md:w-1/3 w-full mb-5'
                  labelClassName='justify-between flex-1 sm:pr-10'
+                 error={errors.located}
                  {...register('located', { required: { value: !otherLocated, message: 'Выберите место' }})}
           />
           <Radio id='locate2'
@@ -45,6 +46,7 @@ const Form2 = ({ setData, point, back, data, step }) => {
                  value='Торговый центр'
                  className='md:w-1/3 w-full mb-5'
                  labelClassName='justify-between flex-1 sm:pr-10'
+                 error={errors.located}
                  {...register('located', { required: { value: !otherLocated, message: 'Выберите место' }})}
           />
           <Radio id='locate3'
@@ -52,6 +54,7 @@ const Form2 = ({ setData, point, back, data, step }) => {
                  value='Отдельное здание'
                  className='md:w-1/3 w-full mb-5'
                  labelClassName='justify-between flex-1 sm:pr-10'
+                 error={errors.located}
                  {...register('located', { required: { value: !otherLocated, message: 'Выберите место' }})}
           />
           <Radio id='locate4'
@@ -59,6 +62,7 @@ const Form2 = ({ setData, point, back, data, step }) => {
                  value='Квартира, переоборудованная под офис'
                  className='md:w-1/3 w-full mb-5'
                  labelClassName='justify-between flex-1 sm:pr-10'
+                 error={errors.located}
                  {...register('located', { required: { value: !otherLocated, message: 'Выберите место' }})}
           />
           <Radio id='locate5'
@@ -66,11 +70,13 @@ const Form2 = ({ setData, point, back, data, step }) => {
                  value='Коворкинг'
                  className='md:w-1/3 w-full mb-5'
                  labelClassName='justify-between flex-1 sm:pr-10'
+                 error={errors.located}
                  {...register('located', { required: { value: !otherLocated, message: 'Выберите место' }})}
           />
           <Input onFocus={() => setValue('located', null)}
                  placeholder={'Другое'}
                  className='mb-5'
+                 error={errors.located || errors.other_located}
                  {...register('other_located')} />
         </div>
       </div>

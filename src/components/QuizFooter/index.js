@@ -10,7 +10,7 @@ const QuizFooter = ({ error, point, back }) => {
         <Button variant='primary' type='submit' className='sm:mr-9 md:mb-0 mb-3'>
           дальше
         </Button>
-        {error && <span className='text-red font-open-sans font-medium'>Ошибка: {error[1].message}</span>}
+        {error && <span className='text-red font-open-sans font-medium md:pl-4'>Ошибка: {error[1].message}</span>}
       </div>
 
       <div className='flex items-center justify-center bg-gradient-to-b from-white to-gray py-4 sm:w-auto w-full rounded-2xl border border-gray sm:border-none sm:bg-none sm:justify-end'>
