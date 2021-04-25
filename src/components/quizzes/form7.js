@@ -4,6 +4,7 @@ import Button from "../Button";
 import Score from "../Score";
 import {useForm} from "react-hook-form";
 import Progress from "../Progress";
+import QuizFooter from "../QuizFooter";
 
 const Form7 = ({ setData, point, back, data, step }) => {
   const { register, handleSubmit, formState: { errors } } = useForm({
@@ -34,76 +35,70 @@ const Form7 = ({ setData, point, back, data, step }) => {
                  label='до 5 000 тг'
                  value='до 5 000 тг'
                  className='md:w-1/3 w-full mb-5'
-                 labelClassName='justify-between flex-1 sm:pr-10'
+                 labelClassName='justify-between flex-1 sm:pr-10 whitespace-nowrap'
+                 error={errors.costOfInternet}
                  {...register('costOfInternet', { required: 'Выберите стоимость интернета' })}
           />
           <Radio id='costOfInternet2'
                  label='5 000 – 10 000 тг'
                  value='5 000 – 10 000 тг'
                  className='md:w-1/3 w-full mb-5'
-                 labelClassName='justify-between flex-1 sm:pr-10'
+                 labelClassName='justify-between flex-1 sm:pr-10 whitespace-nowrap'
+                 error={errors.costOfInternet}
                  {...register('costOfInternet', { required: 'Выберите стоимость интернета' })}
           />
           <Radio id='costOfInternet3'
                  label='10 000 – 15 000 тг'
                  value='10 000 – 15 000 тг'
                  className='md:w-1/3 w-full mb-5'
-                 labelClassName='justify-between flex-1 sm:pr-10'
+                 labelClassName='justify-between flex-1 sm:pr-10 whitespace-nowrap'
+                 error={errors.costOfInternet}
                  {...register('costOfInternet', { required: 'Выберите стоимость интернета' })}
           />
           <Radio id='costOfInternet4'
                  label='15 000 – 30 000 тг'
                  value='15 000 – 30 000 тг'
                  className='md:w-1/3 w-full mb-5'
-                 labelClassName='justify-between flex-1 sm:pr-10'
+                 labelClassName='justify-between flex-1 sm:pr-10 whitespace-nowrap'
+                 error={errors.costOfInternet}
                  {...register('costOfInternet', { required: 'Выберите стоимость интернета' })}
           />
           <Radio id='costOfInternet5'
                  label='30 000 – 50 000 тг'
                  value='30 000 – 50 000 тг'
                  className='md:w-1/3 w-full mb-5'
-                 labelClassName='justify-between flex-1 sm:pr-10'
+                 labelClassName='justify-between flex-1 sm:pr-10 whitespace-nowrap'
+                 error={errors.costOfInternet}
                  {...register('costOfInternet', { required: 'Выберите стоимость интернета' })}
           />
           <Radio id='costOfInternet6'
                  label='50 000 – 100 000 тг'
                  value='50 000 – 100 000 тг'
                  className='md:w-1/3 w-full mb-5'
-                 labelClassName='justify-between flex-1 sm:pr-10'
+                 labelClassName='justify-between flex-1 sm:pr-10 whitespace-nowrap'
+                 error={errors.costOfInternet}
                  {...register('costOfInternet', { required: 'Выберите стоимость интернета' })}
           />
           <Radio id='costOfInternet7'
                  label='100 000 – 200 000 тг'
                  value='100 000 – 200 000 тг'
                  className='md:w-1/3 w-full mb-5'
-                 labelClassName='justify-between flex-1 sm:pr-10'
+                 labelClassName='justify-between flex-1 sm:pr-10 whitespace-nowrap'
+                 error={errors.costOfInternet}
                  {...register('costOfInternet', { required: 'Выберите стоимость интернета' })}
           />
           <Radio id='costOfInternet8'
                  label='свыше 200 000 тг'
                  value='свыше 200 000 тг'
                  className='md:w-1/3 w-full mb-5'
-                 labelClassName='justify-between flex-1 sm:pr-10'
+                 labelClassName='justify-between flex-1 sm:pr-10 whitespace-nowrap'
+                 error={errors.costOfInternet}
                  {...register('costOfInternet', { required: 'Выберите стоимость интернета' })}
           />
         </div>
       </div>
 
-      <div className='flex sm:flex-row flex-col justify-between items-center'>
-        <div className='sm:mb-0 mb-6 flex items-center sm:flex-row flex-col flex-col-reverse'>
-          <span className='mr-6 font-open-sans font-bold cursor-pointer sm:mt-0 mt-4' onClick={back}>Назад</span>
-          <Button variant='primary' type='submit' className='sm:mr-9'>
-            дальше
-          </Button>
-          {error && <span className='text-red font-open-sans font-medium'>Ошибка: {error[1].message}</span>}
-        </div>
-
-        <div className='flex items-center justify-center bg-gradient-to-b from-white to-gray py-4 sm:w-auto w-full rounded-2xl border border-gray sm:border-none sm:bg-none sm:justify-end'>
-          <span className='mr-4 font-open-sans font-bold'>Ваши баллы</span>
-          <Score point={point} />
-          <span className='text-gray-600 font-bold font-open-sans ml-3'>+5</span>
-        </div>
-      </div>
+      <QuizFooter error={error} point={point} back={back} />
     </form>
   );
 };
